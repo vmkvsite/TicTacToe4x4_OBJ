@@ -1,8 +1,8 @@
-#Tic Tac Toe 4x4
+Tic Tac Toe 4x4
 
-##Project for C++ object oriented class.
+Project for C++ object oriented class.
 
-###Project structure is as follows:
+Project structure is as follows:
 
 Main.cpp - Initializes the program and runs the game
 
