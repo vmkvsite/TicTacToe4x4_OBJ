@@ -100,3 +100,11 @@ void Board::display() {
     }
     cout << "\n";
 }
+
+void Board::reset() {
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            grid[i][j] = ' ';
+        }
+    }
+}

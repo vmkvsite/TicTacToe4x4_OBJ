@@ -1,6 +1,7 @@
 #include "Game.h"
 #include <iostream>
 #include <cstdlib>
+#include <string>
 using namespace std;
 
 Game::Game() : player1('X'), player2('O'), currentPlayer(&player1) {}
@@ -23,13 +24,36 @@ void Game::switchPlayer() {
 }
 
 bool Game::getUserInput(int& row, int& col) {
-    cout << "Enter row (1-4) and column (1-4) separated by space: ";
-    if (cin >> row >> col) {
+    cout << "Enter row (1-4) and column (1-4) separated by space\n";
+    cout << "Or type 'restart' to restart game, 'exit' to quit: ";
+
+    string input;
+    getline(cin, input);
+
+    if (input == "exit" || input == "quit") {
+        cout << "Thanks for playing! Goodbye!\n";
+        exit(0);
+    }
+
+    if (input == "restart") {
+        resetGame();
+        return getUserInput(row, col);
+    }
+
+    size_t spacePos = input.find(' ');
+    if (spacePos == string::npos) {
+        return false;
+    }
+
+    try {
+        string rowStr = input.substr(0, spacePos);
+        string colStr = input.substr(spacePos + 1);
+
+        row = stoi(rowStr);
+        col = stoi(colStr);
         return true;
     }
-    else {
-        cin.clear();
-        cin.ignore(1000, '\n');
+    catch (...) {
         return false;
     }
 }
@@ -39,13 +63,15 @@ void Game::displayInstructions() {
     cout << "Players take turns placing " << player1.getSymbol()
         << " and " << player2.getSymbol() << " on the board.\n";
     cout << "First to get 4 in a row (horizontal, vertical, or diagonal) wins!\n";
-    cout << "Enter coordinates as: row column (both from 1 to 4)\n\n";
+    cout << "Enter coordinates as: row column (both from 1 to 4)\n";
+    cout << "Special commands:\n";
+    cout << "  - Type 'restart' to restart the game\n";
+    cout << "  - Type 'exit' or 'quit' to exit the game\n\n";
 }
 
 void Game::play() {
     displayInstructions();
     cout << "Press Enter to start the game...";
-    cin.ignore();
     cin.get();
 
     while (true) {
@@ -58,7 +84,6 @@ void Game::play() {
         if (!getUserInput(row, col)) {
             cout << "Invalid input! Please enter two numbers.\n";
             cout << "Press Enter to continue...";
-            cin.ignore();
             cin.get();
             continue;
         }
@@ -84,8 +109,17 @@ void Game::play() {
         else {
             cout << "Invalid move! Position must be between 1-4 and not already taken.\n";
             cout << "Press Enter to try again...";
-            cin.ignore();
             cin.get();
         }
     }
+}
+
+void Game::resetGame() {
+    gameBoard.reset();
+    currentPlayer = &player1;
+    clearScreen(); 
+    cout << "Game has been restarted!\n";
+    gameBoard.display(); 
+    cout << "Press Enter to continue...";
+    cin.get();
 }

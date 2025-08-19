@@ -3,6 +3,7 @@
 
 #include "Board.h"
 #include "Player.h"
+#include <string>
 
 class Game {
 private:
@@ -14,6 +15,7 @@ private:
     void clearScreen();
     void switchPlayer();
     bool getUserInput(int& row, int& col);
+    void resetGame();
 
 public:
     Game();

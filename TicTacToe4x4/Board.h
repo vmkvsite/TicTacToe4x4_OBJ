@@ -20,6 +20,7 @@ public:
     bool checkWin(char player);
     bool isFull();
     void display();
+    void reset();
 };
 
 #endif
