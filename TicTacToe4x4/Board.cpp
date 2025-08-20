@@ -1,5 +1,8 @@
 #include "Board.h"
 
+using std::vector;
+using std::cout;
+
 Board::Board() : grid(4, vector<char>(4, ' ')) {}
 
 int Board::convertToIndex(int userInput) {

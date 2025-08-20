@@ -3,11 +3,10 @@
 
 #include <vector>
 #include <iostream>
-using namespace std;
 
 class Board {
 private:
-    vector<vector<char>> grid;
+    std::vector<std::vector<char>> grid;
     const int SIZE = 4;
 
     int convertToIndex(int userInput);

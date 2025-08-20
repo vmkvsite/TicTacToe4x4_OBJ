@@ -2,7 +2,12 @@
 #include <iostream>
 #include <cstdlib>
 #include <string>
-using namespace std;
+
+using std::cout;
+using std::cin;
+using std::string;
+using std::getline;
+using std::stoi;
 
 Game::Game() : player1('X'), player2('O'), currentPlayer(&player1) {}
 
@@ -117,9 +122,9 @@ void Game::play() {
 void Game::resetGame() {
     gameBoard.reset();
     currentPlayer = &player1;
-    clearScreen(); 
+    clearScreen();
     cout << "Game has been restarted!\n";
-    gameBoard.display(); 
+    gameBoard.display();
     cout << "Press Enter to continue...";
     cin.get();
 }
