@@ -1,4 +1,5 @@
 #include "Board.h"
+#include <algorithm>
 
 using std::vector;
 using std::cout;
@@ -35,25 +36,17 @@ bool Board::makeMove(int row, int col, char player) {
 
 bool Board::checkWin(char player) {
     for (int i = 0; i < SIZE; i++) {
-        bool rowWin = true;
-        for (int j = 0; j < SIZE; j++) {
-            if (grid[i][j] != player) {
-                rowWin = false;
-                break;
-            }
+        if (std::all_of(grid[i].begin(), grid[i].end(),
+            [player](char cell) { return cell == player; })) {
+            return true;
         }
-        if (rowWin) return true;
     }
 
     for (int j = 0; j < SIZE; j++) {
-        bool colWin = true;
-        for (int i = 0; i < SIZE; i++) {
-            if (grid[i][j] != player) {
-                colWin = false;
-                break;
-            }
+        if (std::all_of(grid.begin(), grid.end(),
+            [j, player](const vector<char>& row) { return row[j] == player; })) {
+            return true;
         }
-        if (colWin) return true;
     }
 
     bool mainDiagWin = true;
@@ -78,14 +71,11 @@ bool Board::checkWin(char player) {
 }
 
 bool Board::isFull() {
-    for (int i = 0; i < SIZE; i++) {
-        for (int j = 0; j < SIZE; j++) {
-            if (grid[i][j] == ' ') {
-                return false;
-            }
-        }
-    }
-    return true;
+    return std::all_of(grid.begin(), grid.end(),
+        [](const vector<char>& row) {
+            return std::all_of(row.begin(), row.end(),
+                [](char cell) { return cell != ' '; });
+        });
 }
 
 void Board::display() {
