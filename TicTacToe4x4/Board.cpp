@@ -3,7 +3,7 @@
 using std::vector;
 using std::cout;
 
-Board::Board() : grid(4, vector<char>(4, ' ')) {}
+Board::Board() : grid(SIZE, vector<char>(SIZE, ' ')) {}
 
 int Board::convertToIndex(int userInput) {
     return userInput - 1;

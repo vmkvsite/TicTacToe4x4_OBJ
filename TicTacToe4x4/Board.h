@@ -7,12 +7,13 @@
 class Board {
 private:
     std::vector<std::vector<char>> grid;
-    const int SIZE = 4;
 
     int convertToIndex(int userInput);
     bool isValidInput(int row, int col);
 
 public:
+    static const int SIZE = 4;
+
     Board();
     int getSize() const;
     bool makeMove(int row, int col, char player);
