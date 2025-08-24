@@ -6,11 +6,11 @@ using std::cout;
 
 Board::Board() : grid(SIZE, vector<char>(SIZE, ' ')) {}
 
-int Board::convertToIndex(int userInput) {
+int Board::convertToIndex(int userInput) const {
     return userInput - 1;
 }
 
-bool Board::isValidInput(int row, int col) {
+bool Board::isValidInput(int row, int col) const {
     return (row >= 1 && row <= SIZE && col >= 1 && col <= SIZE);
 }
 
@@ -34,7 +34,7 @@ bool Board::makeMove(int row, int col, char player) {
     return true;
 }
 
-bool Board::checkWin(char player) {
+bool Board::checkWin(char player) const {
     for (int i = 0; i < SIZE; i++) {
         if (std::all_of(grid[i].begin(), grid[i].end(),
             [player](char cell) { return cell == player; })) {
@@ -70,7 +70,7 @@ bool Board::checkWin(char player) {
     return false;
 }
 
-bool Board::isFull() {
+bool Board::isFull() const {
     return std::all_of(grid.begin(), grid.end(),
         [](const vector<char>& row) {
             return std::all_of(row.begin(), row.end(),
@@ -78,7 +78,7 @@ bool Board::isFull() {
         });
 }
 
-void Board::display() {
+void Board::display() const {
     cout << "\n   1   2   3   4\n";
     for (int i = 0; i < SIZE; i++) {
         cout << (i + 1) << "  ";
