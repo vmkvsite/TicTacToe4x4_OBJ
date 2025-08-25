@@ -2,12 +2,15 @@
 #include <iostream>
 #include <cstdlib>
 #include <string>
+#include <sstream>
+#include <cctype>
 
 using std::cout;
 using std::cin;
 using std::string;
 using std::getline;
 using std::stoi;
+using std::istringstream;
 
 Game::Game() : player1('X'), player2('O'), currentPlayer(&player1) {}
 
@@ -28,6 +31,17 @@ void Game::switchPlayer() {
     }
 }
 
+bool Game::isValidNumber(const string& str) {
+    if (str.empty()) return false;
+
+    for (char c : str) {
+        if (!std::isdigit(c)) {
+            return false;
+        }
+    }
+    return true;
+}
+
 bool Game::getUserInput(int& row, int& col) {
     cout << "Enter row (1-4) and column (1-4) separated by space\n";
     cout << "Or type 'restart' to restart game, 'exit' to quit: ";
@@ -45,15 +59,22 @@ bool Game::getUserInput(int& row, int& col) {
         return getUserInput(row, col);
     }
 
-    size_t spacePos = input.find(' ');
-    if (spacePos == string::npos) {
+    istringstream iss(input);
+    string rowStr, colStr, extra;
+
+    if (!(iss >> rowStr >> colStr)) {
+        return false; 
+    }
+
+    if (iss >> extra) {
+        return false; 
+    }
+
+    if (!isValidNumber(rowStr) || !isValidNumber(colStr)) {
         return false;
     }
 
     try {
-        string rowStr = input.substr(0, spacePos);
-        string colStr = input.substr(spacePos + 1);
-
         row = stoi(rowStr);
         col = stoi(colStr);
         return true;
@@ -87,7 +108,8 @@ void Game::play() {
         int row, col;
 
         if (!getUserInput(row, col)) {
-            cout << "Invalid input! Please enter two numbers.\n";
+            cout << "Invalid input! Please enter exactly two numbers (1-4) separated by a space.\n";
+            cout << "Examples: '1 2' or '3 4'\n";
             cout << "Press Enter to continue...";
             cin.get();
             continue;

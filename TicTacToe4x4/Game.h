@@ -15,6 +15,7 @@ private:
     void clearScreen();
     void switchPlayer();
     bool getUserInput(int& row, int& col);
+    bool isValidNumber(const std::string& str);
     void resetGame();
 
 public:
