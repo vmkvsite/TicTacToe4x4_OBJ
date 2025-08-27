@@ -5,16 +5,45 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TicTacToe4x4", "TicTacToe4x4\TicTacToe4x4.vcxproj", "{5D60C431-2998-4BD9-B701-1DB2F476AE43}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TicTacToeTests", "TicTacToeTests\TicTacToeTests.vcxproj", "{023B8B24-71D6-4B0C-A36B-0C7C55C3CB1E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{EBD35937-0FD4-4ABC-91CF-81E4F4D1A58F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{4DCA57AB-9E57-45D8-969D-1F6479A17260}"
+	ProjectSection(SolutionItems) = preProject
+		ci.yml = ci.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D60C431-2998-4BD9-B701-1DB2F476AE43}.Debug|x64.ActiveCfg = Debug|x64
+		{5D60C431-2998-4BD9-B701-1DB2F476AE43}.Debug|x64.Build.0 = Debug|x64
+		{5D60C431-2998-4BD9-B701-1DB2F476AE43}.Debug|x86.ActiveCfg = Debug|Win32
+		{5D60C431-2998-4BD9-B701-1DB2F476AE43}.Debug|x86.Build.0 = Debug|Win32
 		{5D60C431-2998-4BD9-B701-1DB2F476AE43}.Release|x64.ActiveCfg = Release|x64
 		{5D60C431-2998-4BD9-B701-1DB2F476AE43}.Release|x64.Build.0 = Release|x64
+		{5D60C431-2998-4BD9-B701-1DB2F476AE43}.Release|x86.ActiveCfg = Release|Win32
+		{5D60C431-2998-4BD9-B701-1DB2F476AE43}.Release|x86.Build.0 = Release|Win32
+		{023B8B24-71D6-4B0C-A36B-0C7C55C3CB1E}.Debug|x64.ActiveCfg = Debug|x64
+		{023B8B24-71D6-4B0C-A36B-0C7C55C3CB1E}.Debug|x64.Build.0 = Debug|x64
+		{023B8B24-71D6-4B0C-A36B-0C7C55C3CB1E}.Debug|x86.ActiveCfg = Debug|Win32
+		{023B8B24-71D6-4B0C-A36B-0C7C55C3CB1E}.Debug|x86.Build.0 = Debug|Win32
+		{023B8B24-71D6-4B0C-A36B-0C7C55C3CB1E}.Release|x64.ActiveCfg = Release|x64
+		{023B8B24-71D6-4B0C-A36B-0C7C55C3CB1E}.Release|x64.Build.0 = Release|x64
+		{023B8B24-71D6-4B0C-A36B-0C7C55C3CB1E}.Release|x86.ActiveCfg = Release|Win32
+		{023B8B24-71D6-4B0C-A36B-0C7C55C3CB1E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4DCA57AB-9E57-45D8-969D-1F6479A17260} = {EBD35937-0FD4-4ABC-91CF-81E4F4D1A58F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3971C5CF-5B2C-4A4F-8AD6-C906A8194738}
