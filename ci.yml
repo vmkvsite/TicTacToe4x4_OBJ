@@ -24,3 +24,5 @@ jobs:
 
     - name: Run Tests
       run: .\x64\Release\TicTacToeTests.exe
+
+      # awdafawff
