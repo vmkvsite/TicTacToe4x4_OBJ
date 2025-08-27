@@ -17,12 +17,10 @@ jobs:
       uses: microsoft/setup-msbuild@v1
 
     - name: Restore NuGet packages
-      run: nuget restore *.sln
+      run: nuget restore TicTacToe4x4.sln
 
     - name: Build
-      run: msbuild /m /p:Configuration=Release /p:Platform=x64
+      run: msbuild TicTacToe4x4.sln /m /p:Configuration=Release /p:Platform=x64
 
     - name: Run Tests
       run: .\x64\Release\TicTacToeTests.exe
-
-      # awdafawff
