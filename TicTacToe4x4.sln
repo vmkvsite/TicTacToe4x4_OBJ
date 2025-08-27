@@ -7,11 +7,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TicTacToe4x4", "TicTacToe4x
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TicTacToeTests", "TicTacToeTests\TicTacToeTests.vcxproj", "{023B8B24-71D6-4B0C-A36B-0C7C55C3CB1E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{EBD35937-0FD4-4ABC-91CF-81E4F4D1A58F}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{4DCA57AB-9E57-45D8-969D-1F6479A17260}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9EABFB9B-A840-4090-B062-F103597121FB}"
 	ProjectSection(SolutionItems) = preProject
-		ci_new.yml = ci_new.yml
+		.github\workflows\ci.yml = .github\workflows\ci.yml
 	EndProjectSection
 EndProject
 Global
@@ -41,9 +39,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{4DCA57AB-9E57-45D8-969D-1F6479A17260} = {EBD35937-0FD4-4ABC-91CF-81E4F4D1A58F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3971C5CF-5B2C-4A4F-8AD6-C906A8194738}
