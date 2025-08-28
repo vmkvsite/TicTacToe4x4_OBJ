@@ -16,11 +16,9 @@ jobs:
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1
 
-    - name: Restore NuGet packages
-      run: nuget restore TicTacToe4x4.sln
-
     - name: Build
       run: msbuild TicTacToe4x4.sln /m /p:Configuration=Release /p:Platform=x64
 
     - name: Run Tests
-      run: .\x64\Release\TicTacToeTests.exe
+      run: |
+        vstest.console.exe "x64\Release\TicTacToeTest.dll" --logger:console --platform:x64
